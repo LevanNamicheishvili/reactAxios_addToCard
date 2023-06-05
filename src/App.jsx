@@ -18,36 +18,46 @@ function App() {
     fetchProducts();
   }, []);
 
+    // Reset button state after 3 seconds
+    setTimeout(() => {
+      button.disabled = false;
+      button.classList.remove('success');
+      button.innerHTML = 'Add to Card';
+    }, 3000);
+  };
+
   return (
     <div className="card-container">
       {products.map((product) => (
         <div key={product.id} className="card">
           <div className="card_img_box">
-          <img src={product.image} alt={product.title} className="card-image" />
+            <img src={product.image} alt={product.title} className="card-image" />
           </div>
           <div className="card_title_box">
-          <h2 className="card-title">{product.title}</h2>
+            <h2 className="card-title">{product.title}</h2>
           </div>
           <div className="card_inf_box">
-          <p className="card-price">${product.price}</p>
-          <div className="card_description_box">
-          <p className="card-description">{product.description}</p>
-          </div>
+            <p className="card-price">${product.price}</p>
+            <div className="card_description_box">
+              <p className="card-description">{product.description}</p>
+            </div>
           </div>
           <p className="card-category">{product.category}</p>
           <div className="card-rating">
             <span className="rating-value">{product.rating.rate}</span>
             <span className="rating-count">({product.rating.count})</span>
           </div>
-          <button className="add-to-cart-button" onClick={() => addToCart(product)}>
-            Add to Cart
+          <button
+            id={`add-to-card-${product.id}`}
+            className="add-to-card-button"
+            onClick={() => addToCard(product)}
+          >
+            Add to Card
           </button>
         </div>
       ))}
     </div>
   );
-  
 }
 
 export default App;
-

@@ -1,3 +1,11 @@
+.root { 
+  left: 4%;
+  position: absolute;
+  top: 30%;
+}
+
+
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -79,7 +87,7 @@
   color: #888;
 }
 
-.add-to-cart-button {
+.add-to-card-button {
   margin-top: 10px;
   padding: 8px 16px;
   background-color: #007bff;
@@ -89,6 +97,50 @@
   cursor: pointer;
 }
 
-.add-to-cart-button:hover {
+.add-to-card-button:hover {
   background-color: #0056b3;
 }
+
+.add-to-card-button {
+  width: 215px;
+  height: 40px;
+  background-color: #2196f3;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-card-button.loading {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.add-to-card-button.success {
+  background-color: #4caf50;
+
+}
+
+.add-to-card-button .loader {
+  display: inline-block;
+  border: 4px solid #fff;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
