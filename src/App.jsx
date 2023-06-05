@@ -18,6 +18,19 @@ function App() {
     fetchProducts();
   }, []);
 
+  const addToCard = async (product) => {
+    const button = document.getElementById(`add-to-card-${product.id}`);
+    button.disabled = true; // Disable the button
+    button.classList.add('loading'); // Apply loading style
+
+    // Simulate an asynchronous action (e.g., API call) with a delay
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // After the action is complete, change button state
+    button.classList.remove('loading'); // Remove loading style
+    button.classList.add('success'); // Apply success style
+    button.innerHTML = 'Successfully Added';
+
     // Reset button state after 3 seconds
     setTimeout(() => {
       button.disabled = false;
@@ -27,6 +40,8 @@ function App() {
   };
 
   return (
+    <>
+   
     <div className="card-container">
       {products.map((product) => (
         <div key={product.id} className="card">
@@ -57,6 +72,7 @@ function App() {
         </div>
       ))}
     </div>
+    </>
   );
 }
 
