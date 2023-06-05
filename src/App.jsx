@@ -22,11 +22,17 @@ function App() {
     <div className="card-container">
       {products.map((product) => (
         <div key={product.id} className="card">
+          <div className="card_img_box">
           <img src={product.image} alt={product.title} className="card-image" />
+          </div>
+          <div className="card_title_box">
           <h2 className="card-title">{product.title}</h2>
+          </div>
           <div className="card_inf_box">
           <p className="card-price">${product.price}</p>
+          <div className="card_description_box">
           <p className="card-description">{product.description}</p>
+          </div>
           </div>
           <p className="card-category">{product.category}</p>
           <div className="card-rating">
